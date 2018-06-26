@@ -1,157 +1,320 @@
-" Vim color file
-" Maintainer:   Hans Fugal <hans@fugal.net>
-" Last Change:  $Date: 2003/05/06 16:37:49 $
-" URL:		http://hans.fugal.net/vim/colors/desert.vim
+"=========================================================================
+" 修改于 2018年6月
+"
+"
+"
+"=========================================================================
 
-" cool help screens
-" :he group-name
-" :he highlight-groups
-" :he cterm-colors
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" yui
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-set background=dark
-set nu
-set tabstop=2
-set autoindent
-set sw=2
-set pastetoggle=<C-F12>
-if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
-    if exists("syntax_on")
-	syntax reset
-    endif
-endif
-let g:colors_name="desert"
+" let Vundle manage Vundle, required
+Plugin 'scrooloose/nerdtree'
+nnoremap <F2> :NERDTreeToggle<CR>Plugin 'VundleVim/Vundle.vim'
 
-hi Normal	guifg=white guibg=#304050
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+Plugin 'ascenator/L9', {'name': 'newL9'}
 
-call pathogen#runtime_append_all_bundles()
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
-" highlight groups
-hi Cursor	guibg=khaki guifg=slategrey
-"hi CursorIM
-"hi Directory
-"hi DiffAdd
-"hi DiffChange
-"hi DiffDelete
-"hi DiffText
-"hi ErrorMsg
-hi VertSplit	guibg=#102030 guifg=#102030 gui=none
-hi Folded	guifg=#203040 guibg=#405060
-hi FoldColumn	guibg=grey30 guifg=tan
-hi IncSearch	guifg=slategrey guibg=khaki
-"hi LineNr
-hi ModeMsg	guifg=goldenrod
-hi MoreMsg	guifg=SeaGreen
-hi NonText	guifg=LightBlue guibg=grey30
-hi Question	guifg=springgreen
-hi Search	guibg=peru guifg=wheat
-hi SpecialKey	guifg=yellowgreen
-hi StatusLine	guibg=#102030 guifg=grey70 gui=none
-hi StatusLineNC	guibg=#203040 guifg=grey50 gui=none
-hi Title	guifg=indianred
-hi Visual	gui=none guifg=khaki guibg=olivedrab
-"hi VisualNOS
-hi WarningMsg	guifg=salmon
-"hi WildMenu
-"hi Menu
-"hi Scrollbar
-"hi Tooltip
-
-" syntax highlighting groups
-hi Comment	 guifg=#8090a0
-hi Constant	 guifg=#ff6070
-hi Identifier	 guifg=#70d080 gui=bold
-hi Statement	 guifg=khaki
-hi PreProc	 guifg=indianred
-hi Type		 guifg=darkkhaki
-hi Special	 guifg=navajowhite
-"hi Underlined
-hi Ignore	 guifg=grey40
-"hi Error
-hi Todo		 guifg=white guibg=#8090a0
-
-" color terminal definitions
-hi SpecialKey	 ctermfg=darkgreen
-hi NonText	 cterm=bold ctermfg=darkblue
-hi Directory	 ctermfg=darkcyan
-hi ErrorMsg	 cterm=bold ctermfg=7 ctermbg=1
-hi IncSearch	 cterm=NONE ctermfg=yellow ctermbg=green
-hi Search	 cterm=NONE ctermfg=grey ctermbg=blue
-hi MoreMsg	 ctermfg=darkgreen
-hi ModeMsg	 cterm=NONE ctermfg=brown
-hi LineNr	 ctermfg=3
-hi Question	 ctermfg=green
-hi StatusLine	 cterm=bold,reverse
-hi StatusLineNC  cterm=reverse
-hi VertSplit	 cterm=reverse
-hi Title	 ctermfg=5
-hi Visual	 cterm=reverse
-hi VisualNOS	 cterm=bold,underline
-hi WarningMsg	 ctermfg=1
-hi WildMenu	 ctermfg=0 ctermbg=3
-hi Folded	 ctermfg=darkgrey ctermbg=NONE
-hi FoldColumn	 ctermfg=darkgrey ctermbg=NONE
-hi DiffAdd	 ctermbg=4
-hi DiffChange	 ctermbg=5
-hi DiffDelete	 cterm=bold ctermfg=4 ctermbg=6
-hi DiffText	 cterm=bold ctermbg=1
-hi Comment	 ctermfg=darkcyan
-hi Constant	 ctermfg=brown
-hi Special	 ctermfg=5
-hi Identifier	 ctermfg=6
-hi Statement	 ctermfg=3
-hi PreProc	 ctermfg=5
-hi Type		 ctermfg=2
-hi Underlined	 cterm=underline ctermfg=5
-hi Ignore	 cterm=bold ctermfg=7
-hi Error	 cterm=bold ctermfg=7 ctermbg=1
-set hlsearch
-au BufNewFile,BufReadPost *.ls setl shiftwidth=2 expandtab
-
-
-set nocompatible              " be iMproved
-filetype off                  " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" " required! 
-Bundle 'gmarik/vundle'
-
-" My bundles here:
-Bundle 'yui/vim-yui3'
-
-" original repos on GitHub
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'vim-multiple-cursors'
-"Bundle 'Valloric/YouCompleteMe'
-" non-GitHub repos
-"Bundle 'git://git.wincent.com/command-t.git'
-" Git repos on your local machine (i.e. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
-" ...
-
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
+" Put your non-Plugin stuff after this line
+"autocmd vimenter * NERDTree
+" 设置NerdTree（侧边栏）
+map <F3> :NERDTreeMirror<CR>
+map <F3> :NERDTreeToggle<CR>
+" 关闭文件时同时关闭文件浏览器
+let NERDTreeQuitOnOpen = 1
+"当打开vim且没有文件时自动打开NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+" 只剩 NERDTree时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+
+set nocompatible " 关闭 vi 兼容模式
+syntax on " 自动语法高亮
+set number " 显示行号
+set cursorline " 突出显示当前行
+set cursorline cursorcolumn " 十字架定位
+set ruler " 打开状态栏标尺
+set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 2
+set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
+set tabstop=2 " 设定 tab 长度为 2
+set softtabstop=2
+set shiftwidth=2
+set expandtab " 缩进代表空格
+set list
+set listchars=tab:▸-,eol:↩︎,trail:-
+set nobackup " 覆盖文件时不备份
+set autochdir " 自动切换当前目录为当前文件所在的目录
+filetype plugin indent on " 开启插件
+set backupcopy=yes " 设置备份时的行为为覆盖
+set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set nowrapscan " 禁止在搜索到文件两端时重新搜索
+set incsearch " 输入搜索内容时就显示搜索结果
+set hlsearch " 搜索时高亮显示被找到的文本
+set noerrorbells " 关闭错误信息响铃
+set novisualbell " 关闭使用可视响铃代替呼叫
+set t_vb= " 置空错误铃声的终端代码
+set showmatch " 插入括号时，短暂地跳转到匹配的对应括号
+set matchtime=2 " 短暂跳转到匹配括号的时间
+set magic " 设置魔术
+set hidden " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+set guioptions-=T " 隐藏工具栏
+set guioptions-=m " 隐藏菜单栏
+set smartindent " 开启新行时使用智能自动缩进
+set backspace=indent,eol,start " 不设定在插入状态无法用退格键和 Delete 键删除回车符
+set cmdheight=1 " 设定命令行的行数为 1
+set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ " 设置在状态行显示的信息
+set foldenable " 开始折叠
+set foldmethod=syntax " 设置语法折叠
+set foldcolumn=0 " 设置折叠区域的宽度
+setlocal foldlevel=1 " 设置折叠层数为
+syntax enable
+set t_Co=256
+colorscheme molokai" 设置颜色主题
+let g:molokai_original = 1 " molokai 设置
+let g:rehash256 = 1 " molokai 设置
+
+
+" return OS type, eg: windows, or linux, mac, et.st..
+function! MySys()
+if has("win16") || has("win32") || has("win64") || has("win95")
+return "windows"
+elseif has("unix")
+return "linux"
+endif
+endfunction
+
+" 用户目录变量$VIMFILES
+if MySys() == "windows"
+let $VIMFILES = $VIM.'/vimfiles'
+elseif MySys() == "linux"
+let $VIMFILES = $HOME.'/.vim'
+endif
+
+" 设定doc文档目录
+let helptags=$VIMFILES.'/doc'
+
+" 设置字体 以及中文支持
+if has("win32")
+set guifont=Inconsolata:h12:cANSI
+endif
+
+" 配置多语言环境
+if has("multi_byte")
+" UTF-8 编码
+set encoding=utf-8
+set termencoding=utf-8
+set formatoptions+=mM
+set fencs=utf-8,gbk
+
+if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
+set ambiwidth=double
+endif
+
+if has("win32")
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_CN.utf-8
+endif
+else
+echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
+endif
+
+" Buffers操作快捷方式!
+nnoremap <C-RETURN> :bnext<CR>
+nnoremap <C-S-RETURN> :bprevious<CR>
+
+" Tab操作快捷方式!
+nnoremap <C-TAB> :tabnext<CR>
+nnoremap <C-S-TAB> :tabprev<CR>
+
+"关于tab的快捷键
+" map tn :tabnext<cr>
+" map tp :tabprevious<cr>
+" map td :tabnew .<cr>
+" map te :tabedit
+" map tc :tabclose<cr>
+
+"窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
+"光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
+"时候会变得非常方便.
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+"一些不错的映射转换语法（如果在一个文件中混合了不同语言时有用）
+nnoremap <leader>1 :set filetype=xhtml<CR>
+nnoremap <leader>2 :set filetype=css<CR>
+nnoremap <leader>3 :set filetype=javascript<CR>
+nnoremap <leader>4 :set filetype=php<CR>
+
+" set fileformats=unix,dos,mac
+" nmap <leader>fd :se fileformat=dos<CR>
+" nmap <leader>fu :se fileformat=unix<CR>
+
+" use Ctrl+[l|n|p|cc] to list|next|previous|jump to count the result
+" map <C-x>l <ESC>:cl<CR>
+" map <C-x>n <ESC>:cn<CR>
+" map <C-x>p <ESC>:cp<CR>
+" map <C-x>c <ESC>:cc<CR>
+
+
+" 让 Tohtml 产生有 CSS 语法的 html
+" syntax/2html.vim，可以用:runtime! syntax/2html.vim
+let html_use_css=1
+
+" Python 文件的一般设置，比如不要 tab 等
+autocmd FileType python set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType python map <F12> :!python %<CR>
+
+" 选中状态下 Ctrl+c 复制
+vmap <C-c> "+y
+
+" 打开javascript折叠
+let b:javascript_fold=1
+" 打开javascript对dom、html和css的支持
+let javascript_enable_domhtmlcss=1
+" 设置字典 ~/.vim/dict/文件的路径
+autocmd filetype javascript set dictionary=$VIMFILES/dict/javascript.dict
+autocmd filetype css set dictionary=$VIMFILES/dict/css.dict
+autocmd filetype php set dictionary=$VIMFILES/dict/php.dict
+
+"-----------------------------------------------------------------
+" plugin - bufexplorer.vim Buffers切换
+" \be 全屏方式查看全部打开的文件列表
+" \bv 左右方式查看 \bs 上下方式查看
+"-----------------------------------------------------------------
+
+
+"-----------------------------------------------------------------
+" plugin - taglist.vim 查看函数列表，需要ctags程序
+" F4 打开隐藏taglist窗口
+"-----------------------------------------------------------------
+if MySys() == "windows" " 设定windows系统中ctags程序的位置
+let Tlist_Ctags_Cmd = '"'.$VIMRUNTIME.'/ctags.exe"'
+elseif MySys() == "linux" " 设定windows系统中ctags程序的位置
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+endif
+nnoremap <silent><F4> :TlistToggle<CR>
+let Tlist_Show_One_File = 1 " 不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow = 1 " 如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1 " 在右侧窗口中显示taglist窗口
+let Tlist_File_Fold_Auto_Close=1 " 自动折叠当前非编辑文件的方法列表
+let Tlist_Auto_Open = 0
+let Tlist_Auto_Update = 1
+let Tlist_Hightlight_Tag_On_BufEnter = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Process_File_Always = 1
+let Tlist_Display_Prototype = 0
+let Tlist_Compact_Format = 1
+
+
+"-----------------------------------------------------------------
+" plugin - mark.vim 给各种tags标记不同的颜色，便于观看调式的插件。
+" \m mark or unmark the word under (or before) the cursor
+" \r manually input a regular expression. 用于搜索.
+" \n clear this mark (i.e. the mark under the cursor), or clear all highlighted marks .
+" \* 当前MarkWord的下一个 \# 当前MarkWord的上一个
+" \/ 所有MarkWords的下一个 \? 所有MarkWords的上一个
+"-----------------------------------------------------------------
+
+
+"-----------------------------------------------------------------
+" plugin - NERD_tree.vim 以树状方式浏览系统中的文件和目录
+" :ERDtree 打开NERD_tree :NERDtreeClose 关闭NERD_tree
+" o 打开关闭文件或者目录 t 在标签页中打开
+" T 在后台标签页中打开 ! 执行此文件
+" p 到上层目录 P 到根目录
+" K 到第一个节点 J 到最后一个节点
+" u 打开上层目录 m 显示文件系统菜单（添加、删除、移动操作）
+" r 递归刷新当前目录 R 递归刷新当前根目录
+"-----------------------------------------------------------------
+" F3 NERDTree 切换
+map <F3> :NERDTreeToggle<CR>
+imap <F3> <ESC>:NERDTreeToggle<CR>
+
+
+"-----------------------------------------------------------------
+" plugin - NERD_commenter.vim 注释代码用的，
+" [count],cc 光标以下count行逐行添加注释(7,cc)
+" [count],cu 光标以下count行逐行取消注释(7,cu)
+" [count],cm 光标以下count行尝试添加块注释(7,cm)
+" ,cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。
+" 注：count参数可选，无则默认为选中行或当前行
+"-----------------------------------------------------------------
+let NERDSpaceDelims=1 " 让注释符与语句之间留一个空格
+let NERDCompactSexyComs=1 " 多行注释时样子更好看
+
+
+"-----------------------------------------------------------------
+" plugin - DoxygenToolkit.vim 由注释生成文档，并且能够快速生成函数标准注释
+"-----------------------------------------------------------------
+let g:DoxygenToolkit_authorName="Asins - asinsimple AT gmail DOT com"
+let g:DoxygenToolkit_briefTag_funcName="yes"
+map <leader>da :DoxAuthor<CR>
+map <leader>df :Dox<CR>
+map <leader>db :DoxBlock<CR>
+map <leader>dc a /* */<LEFT><LEFT><LEFT>
+
+
+"-----------------------------------------------------------------
+" plugin – ZenCoding.vim 很酷的插件，HTML代码生成
+" 插件最新版：http://github.com/mattn/zencoding-vim
+" 常用命令可看：http://nootn.com/blog/Tool/23/
+"-----------------------------------------------------------------
+
+
+"-----------------------------------------------------------------
+" plugin – checksyntax.vim JavaScript常见语法错误检查
+" 默认快捷方式为 F5
+"-----------------------------------------------------------------
+let g:checksyntax_auto = 0 " 不自动检查
+
+
+"-----------------------------------------------------------------
+" plugin - NeoComplCache.vim 自动补全插件
+"-----------------------------------------------------------------
+let g:AutoComplPop_NotEnableAtStartup = 1
+let g:NeoComplCache_EnableAtStartup = 1
+let g:NeoComplCache_SmartCase = 1
+let g:NeoComplCache_TagsAutoUpdate = 1
+let g:NeoComplCache_EnableInfo = 1
+let g:NeoComplCache_EnableCamelCaseCompletion = 1
+let g:NeoComplCache_MinSyntaxLength = 3
+let g:NeoComplCache_EnableSkipCompletion = 1
+let g:NeoComplCache_SkipInputTime = '0.5'
+let g:NeoComplCache_SnippetsDir = $VIMFILES.'/snippets'
+" <TAB> completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" snippets expand key
+imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
